@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi INF C</title>
+    <link rel="icon" href="INFOR C.png">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="INFOR C.png" alt="INF C Logo" class="nav-logo-img">
+                <span>INF C</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#learning" class="nav-link">Learning Material</a></li>
+                <li class="nav-item"><a href="#photo" class="nav-link">Photo</a></li>
+                <li class="nav-item"><a href="#video" class="nav-link">Trend Video</a></li>
+                <li class="nav-item"><a href="#tiktok" class="nav-link"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                <li class="nav-item"><a href="#schedule" class="nav-link">Jadwal</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="auth-section" id="auth-section">
+                <span class="loading-text">Loading...</span>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HOME SECTION ==================== -->
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-star"></i> Website Resmi Kelas INF C</div>
+                <h1 class="hero-title">Membangun Masa Depan <br><span class="highlight-text">Bersama INF C</span></h1>
+                <p class="hero-description">Platform digital terpadu untuk mahasiswa INF C. Akses materi pembelajaran, dokumentasi kegiatan, video trend, dan informasi kelas lainnya dalam satu tempat.</p>
+                <div class="hero-buttons">
+                    <a href="#learning" class="btn-hero-primary"><i class="fas fa-book-open"></i> Jelajahi Materi</a>
+                    <a href="#photo" class="btn-hero-secondary"><i class="fas fa-images"></i> Lihat Galeri</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image-bg"></div>
+                <img src="https://i.pinimg.com/736x/95/07/e2/9507e2cac38cbb9e57326e3b6ba33364.jpg" alt="INF C Learning Illustration" class="hero-image">
+                <div class="floating-card card-1"><i class="fas fa-check-circle"></i><span>Materi Terupdate</span></div>
+                <div class="floating-card card-2"><i class="fas fa-users"></i><span>Kompak & Solid</span></div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 60L48 55C96 50 192 40 288 45C384 50 480 70 576 75C672 80 768 70 864 60C960 50 1056 40 1152 45C1248 50 1344 70 1392 80L1440 90V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V60Z" fill="#f5f7fa"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-image-wrapper">
+                <div class="about-bg-shape"></div>
+                <img src="INFOR C.png" alt="Tentang INF C" class="about-image">
+                <div class="about-experience-badge">
+                    <span class="exp-number">2026</span>
+                    <span class="exp-text">Angkatan Aktif</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="section-header">
+                    <span class="section-subtitle">TENTANG KAMI</span>
+                    <h2 class="section-title">Mengenal Lebih Dekat <span class="highlight">INF C</span></h2>
+                </div>
+                <p class="about-description">INF C adalah keluarga besar mahasiswa yang berdedikasi di UIN Prof. K.H. Saifuddin Zuhri. Kami berkomitmen untuk menciptakan lingkungan belajar yang kolaboratif, inovatif, dan penuh solidaritas.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                        <div class="feature-text"><h4>Solidaritas Tinggi</h4><p>Saling mendukung dalam setiap kegiatan.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="feature-text"><h4>Inovatif & Kreatif</h4><p>Berani mengeksplorasi ide dan teknologi baru.</p></div>
+                    </div>
+                </div>
+                <a href="#contact" class="btn-about"><span>Hubungi Kami</span><i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEARNING MATERIAL SECTION ==================== -->
+    <section class="learning-section" id="learning">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">MATERI PEMBELAJARAN</span>
+                <h2 class="section-title">Akses <span class="highlight">Materi Kuliah</span> dengan Mudah</h2>
+                <p class="section-description">Semua materi pembelajaran, modul praktikum, dan tugas tersedia di sini.</p>
+            </div>
+            <div class="learning-grid" id="learning-grid"></div>
+            <div class="section-cta">
+                <a href="adminlogin.html" class="btn-view-all">
+                    <span>Kelola Materi (Admin)</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PHOTO SECTION ==================== -->
+    <section class="photo-section" id="photo">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">GALERI KEGIATAN</span>
+                <h2 class="section-title">Dokumentasi <span class="highlight">Foto Kelas</span></h2>
+                <p class="section-description">Momen berharga dan kegiatan seru bersama keluarga besar INF C.</p>
+            </div>
+            <div class="photo-grid" id="photo-grid"></div>
+        </div>
+    </section>
+
+    <!-- ==================== TREND VIDEOS SECTION ==================== -->
+    <section class="video-section" id="video">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">VIDEO TRENDING</span>
+                <h2 class="section-title">Video <span class="highlight">Terpopuler</span> Minggu Ini</h2>
+                <p class="section-description">Koleksi video menarik, tutorial, dan konten viral di kalangan mahasiswa INF C.</p>
+            </div>
+            <div class="video-grid" id="video-grid"></div>
+            <div class="section-cta">
+                <a href="adminlogin.html" class="btn-view-all">
+                    <span>Kelola Video (Admin)</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TIKTOK SECTION ==================== -->
+    <section class="video-section" id="tiktok">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">TIKTOK KELAS</span>
+                <h2 class="section-title">Video <span class="highlight">TikTok</span> INF C</h2>
+                <p class="section-description">Koleksi video TikTok seru, kreatif, dan momen lucu dari mahasiswa INF C.</p>
+            </div>
+            <div class="video-grid" id="tiktok-grid"></div>
+        </div>
+    </section>
+
+    <!-- ==================== SCHEDULE SECTION ==================== -->
+    <section class="schedule-section" id="schedule">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">JADWAL KULIAH</span>
+                <h2 class="section-title">Jadwal <span class="highlight">Mata Kuliah</span></h2>
+                <p class="section-description">Informasi lengkap jadwal perkuliahan dan penanggung jawab mata kuliah INF C.</p>
+            </div>
+            <div class="table-container" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <table class="attendance-table" id="public-jadwal-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">No</th>
+                            <th width="10%">Hari</th>
+                            <th width="10%">Kode MK</th>
+                            <th width="25%">Mata Kuliah</th>
+                            <th width="5%">SKS</th>
+                            <th width="10%">Ruang</th>
+                            <th width="20%">Penanggung Jawab</th>
+                            <th width="15%">Kontak PJ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="public-jadwal-body"></tbody>
+                </table>
+                <div id="empty-state-public-jadwal" class="empty-state" style="display: none; padding: 40px;">
+                    <i class="fas fa-calendar-times"></i>
+                    <p>Belum ada data jadwal yang dipublish.</p>
+                </div>
+            </div>
+            <div class="section-cta" style="margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="jadwal.html" class="btn-view-all">
+                    <span>Lihat Jadwal Lengkap</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="pj.html" class="btn-view-all" style="background: #28a745; color: white;">
+                    <span>Daftar Penanggung Jawab</span>
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="section-header-center">
+                <span class="section-subtitle">HUBUNGI KAMI</span>
+                <h2 class="section-title">Ada <span class="highlight">Pertanyaan?</span> Kirim Pesan</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text"><h4>Alamat</h4><p>UIN Prof. K.H. Saifuddin Zuhri Kampus II, Purbalingga</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text"><h4>Email</h4><p>infc@uin.ac.id</p></div>
+                    </div>
+                    <div class="contact-social">
+                        <h4>Ikuti Kami</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/infoc.archive/?__pwa=1" class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form">
+                        <h3>Kirim Pesan</h3>
+                        <div class="form-group"><label>Nama Lengkap</label><input type="text" id="contact-name" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" id="contact-email" required></div>
+                        <div class="form-group"><label>Pesan</label><textarea id="contact-message" rows="4" required></textarea></div>
+                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="INFOR C.png" alt="INF C Logo" class="footer-logo-img">
+                    <span>INF C</span>
+                </div>
+                <p class="footer-desc">Website resmi kelas INF C. Tempat berbagi informasi dan kegiatan kelas.</p>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#learning">Learning Material</a></li>
+                    <li><a href="#photo">Photo</a></li>
+                    <li><a href="#tiktok">TikTok</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-envelope"></i><span>infc@uin.ac.id</span></li>
+                    <li><i class="fas fa-phone"></i><span>+62 812-3456-7890</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span class="highlight">INF C</span>. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="auth.js"></script>
+    <script src="document.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INF C | Admin Login</title>
+    <!-- Website Icon -->
+    <link rel="icon" href="INFOR C.png">
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Tambahan khusus untuk Admin Login */
+        .admin-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #0047AB, #0047AB);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(90, 127, 238, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .admin-badge i {
+            margin-right: 5px;
+        }
+
+        .admin-icon-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0047AB, #0047AB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(90, 117, 238, 0.4);
+        }
+
+        .admin-icon-large i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .admin-warning {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ab0000;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 12px;
+            color: #ee5a5a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-warning i {
+            font-size: 16px;
+        }
+
+        .back-to-user {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .back-to-user a {
+            color: #0047AB;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .back-to-user a:hover {
+            background: #0047AB;
+            color: white;
+            transform: translateX(-3px);
+        }
+
+        /* Override warna untuk admin */
+        .admin-theme button {
+            background-color: #0047AB;
+            border-color: #5a70ee;
+        }
+
+        .admin-theme button:hover {
+            background-color: #6b93ff;
+            border-color: #0047AB;
+        }
+
+        .admin-theme button.ghost {
+            background-color: transparent;
+            border-color: #ffffff;
+        }
+
+        .admin-theme button.ghost:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .admin-theme .overlay {
+            background: linear-gradient(to right, #0047AB, #5a4ede);
+        }
+
+        .admin-theme input:focus {
+            box-shadow: 0 0 0 2px rgba(90, 115, 238, 0.2);
+        }
+
+        .admin-theme input:focus::placeholder {
+            color: #0047AB;
+        }
+    </style>
+</head>
+<body class="admin-theme">
+    <!-- Badge Admin -->
+    <div class="admin-badge">
+        <i class="fas fa-shield-alt"></i> ADMIN ONLY
+    </div>
+
+    <!-- Back to User Login -->
+    <div class="back-to-user">
+        <a href="login.html">
+            <i class="fas fa-arrow-left"></i> Login User
+        </a>
+    </div>
+
+    <div class="container" id="container">
+        <!-- Sign Up Form (Tidak digunakan untuk admin, tapi tetap ada untuk struktur) -->
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <div class="admin-icon-large">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h2>Admin Register</h2>
+                <span>Pendaftaran admin baru</span>
+                <input type="text" id="admin-signup-name" placeholder="Nama Admin" required />
+                <input type="text" id="admin-signup-username" placeholder="Username" required />
+                <input type="password" id="admin-signup-password" placeholder="Password" required />
+                <button type="submit">Daftar Admin</button>
+            </form>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <div class="admin-icon-large">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h2>Admin Login</h2>
+                <span>Masuk ke panel administrator</span>
+                
+                <div class="admin-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Halaman ini dikhususkan untuk administrator</span>
+                </div>
+
+                <input type="text" id="admin-username" placeholder="Username" required />
+                <input type="password" id="admin-password" placeholder="Password" required />
+                <button type="submit">
+                    <i class="fas fa-sign-in-alt"></i> Masuk Admin
+                </button>
+            </form>
+        </div>
+
+        <!-- Overlay Container -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <img src="INFOR C.png" alt="INF C Logo" class="card-logo">
+                    <h1>SELAMAT DATANG, ADMIN!</h1>
+                    <p>Kelola konten website INF C dengan mudah dan aman.</p>
+                    <button class="ghost" id="signIn">Masuk Admin</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <img src="INFOR C.png" alt="INF C Logo" class="card-logo">
+                    <h1>DAFTAR ADMIN BARU</h1>
+                    <p>Tambahkan administrator baru untuk mengelola website.</p>
+                    <button class="ghost" id="signUp">Daftar Admin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="adminlogin.js"></script>
+</body>
+</html>

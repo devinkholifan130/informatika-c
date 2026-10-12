@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INF C | Login</title>
+    <!-- Website Icon -->
+    <link rel="icon" href="INFOR C.png">
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h2>Create Account</h2>
+                <span>or use your email for registration</span>
+                <input type="text" id="signup-name" placeholder="Name" required />
+                <input type="text" id="signup-nim" placeholder="NIM" required />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h2>Sign in</h2>
+                <span>Create Your Account</span>
+                <input type="text" id="signin-name" placeholder="Name" required />
+                <input type="text" id="signin-nim" placeholder="NIM" required />
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Overlay Container -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <!-- Logo -->
+                    <img src="INFOR C.png" alt="INF C Logo" class="card-logo">
+                    <h1>SELAMAT DATANG KEMBALI, INF C!</h1>
+                    <p>Silakan masuk ke akun Anda untuk melanjutkan!
+                        (NOTE: Untuk smartphone, bisa menggunakan desktop site di Chrome)
+                    </p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <!-- Logo -->
+                    <img src="INFOR C.png" alt="INF C Logo" class="card-logo">
+                    <h1>SELAMAT DATANG, INF C!</h1>
+                    <p>Daftar dengan detail pribadi Anda untuk menggunakan semua fitur aplikasi ini!
+                    (NOTE: Untuk smartphone, bisa menggunakan desktop site di Chrome)
+                    </p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="login.js"></script>
+      <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>

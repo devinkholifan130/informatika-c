@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Mata Kuliah - INF C</title>
+    <link rel="icon" href="INFOR C.png">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header { text-align: center; margin-bottom: 40px; padding-top: 40px; }
+        .page-header h1 { font-size: 32px; color: #1a1a2e; margin-bottom: 10px; }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; color: #0047AB; text-decoration: none; font-weight: 600; }
+        .btn-back:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="INFOR C.png" alt="INF C Logo" class="nav-logo-img">
+                <span>INF C</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <a href="index.html#schedule" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+        <div class="page-header">
+            <h1><i class="fas fa-calendar-alt"></i> Jadwal Mata Kuliah INF C</h1>
+            <p>Informasi lengkap jadwal perkuliahan dan penanggung jawab mata kuliah.</p>
+        </div>
+
+        <div class="table-container" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <table class="attendance-table" id="full-jadwal-table">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th width="10%">Hari</th>
+                        <th width="10%">Kode MK</th>
+                        <th width="25%">Mata Kuliah</th>
+                        <th width="5%">SKS</th>
+                        <th width="10%">Ruang</th>
+                        <th width="20%">Penanggung Jawab</th>
+                        <th width="15%">Kontak PJ</th>
+                    </tr>
+                </thead>
+                <tbody id="full-jadwal-body"></tbody>
+            </table>
+            <div id="empty-state-full-jadwal" class="empty-state" style="display: none; padding: 40px;">
+                <i class="fas fa-calendar-times"></i>
+                <p>Belum ada data jadwal yang dipublish.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: 60px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span class="highlight">INF C</span>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const DB_NAME = 'INF_C_Database';
+        const DB_VERSION = 2;
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getAllJadwalFromIndexedDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onsuccess = (event) => {
+                    const db = event.target.result;
+                    const transaction = db.transaction(['jadwal'], 'readonly');
+                    const store = transaction.objectStore('jadwal');
+                    const req = store.getAll();
+                    req.onsuccess = () => resolve(req.result);
+                    req.onerror = () => reject(req.error);
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const jadwalData = await getAllJadwalFromIndexedDB();
+                const tbody = document.getElementById('full-jadwal-body');
+                const emptyState = document.getElementById('empty-state-full-jadwal');
+                const table = document.getElementById('full-jadwal-table');
+
+                if (jadwalData.length === 0) {
+                    table.style.display = 'none';
+                    emptyState.style.display = 'block';
+                } else {
+                    table.style.display = 'table';
+                    emptyState.style.display = 'none';
+                    
+                    const hariOrder = { 'Senin': 1, 'Selasa': 2, 'Rabu': 3, 'Kamis': 4, 'Jumat': 5, 'Sabtu': 6 };
+                    jadwalData.sort((a, b) => {
+                        if (hariOrder[a.hari] !== hariOrder[b.hari]) return hariOrder[a.hari] - hariOrder[b.hari];
+                        return a.kode.localeCompare(b.kode);
+                    });
+
+                    tbody.innerHTML = jadwalData.map((item, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td><strong>${item.hari}</strong></td>
+                            <td>${item.kode}</td>
+                            <td>${escapeHtml(item.mk)}</td>
+                            <td style="text-align: center;">${item.sks}</td>
+                            <td>${item.ruang}</td>
+                            <td>
+                                <div style="font-weight: 600;">${escapeHtml(item.pjNama)}</div>
+                                <small style="color: #666;">NIM: ${escapeHtml(item.pjNim)}</small>
+                            </td>
+                            <td>
+                                <a href="https://wa.me/${item.pjWa.replace(/\D/g, '')}" target="_blank" style="color: #28a745; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
+                                    <i class="fab fa-whatsapp"></i> ${item.pjWa}
+                                </a>
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading jadwal:', error);
+            }
+        });
+    </script>
+</body>
+</html>
